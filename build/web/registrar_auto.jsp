@@ -51,9 +51,9 @@
             <!-- First Photo Grid-->
             <div class="w3-row-padding">
                 <!-- formulario agregar vehiculo -->
-                <form action="controlador" method="get" class="w3-container  w3-light-grey w3-text-green w3-margin">
+                <form action="controlador" method="GET" class="w3-container  w3-light-grey w3-text-green w3-margin">
                     <h2 class="w3-center">Registro Vehiculo</h2>
-
+ <input type="hidden" name="peticion" value="vehiculo"/>
                     <div class="w3-row w3-section">
                         <div class="w3-col" style="width:50px"></div>
                         <div class="w3-rest">

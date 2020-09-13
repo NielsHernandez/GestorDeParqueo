@@ -53,18 +53,18 @@
                 <!-- formulario agregar vehiculo -->
                 <form action="controlador" method="GET" class="w3-container  w3-light-grey w3-text-green w3-margin">
                     <h2 class="w3-center">Crear Nomina (pagos)</h2>
-
+ <input type="hidden" name="peticion" value="nomina"/>
                     <div class="w3-row w3-section">
                         <div class="w3-col" style="width:50px"></div>
                         <div class="w3-rest">
-                            <input class="w3-input w3-border" name="nomina" type="text" placeholder="no nomina:">
+                            <input class="w3-input w3-border" name="no_nomina" type="text" placeholder="no nomina:">
                         </div>
                     </div>
 
                     <div class="w3-row w3-section">
                         <div class="w3-col" style="width:50px"></div>
                         <div class="w3-rest">
-                            <input class="w3-input w3-border" name="fecha_nomina" type="date"  data-date-format="DD MMMM YYYY" value="2015-08-09" placeholder="Fecha">
+                            <input class="w3-input w3-border" name="fecha_nomina" type="date"  data-date-format="YYYY MM DD" placeholder="Fecha">
                         </div>
                     </div>
 

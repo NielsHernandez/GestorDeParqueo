@@ -53,7 +53,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
       <!-- formulario agregar vehiculo -->
               <form action="controlador" method="GET" class="w3-container  w3-light-grey w3-text-green w3-margin">
 <h2 class="w3-center">Registrar Empleado</h2>
-
+ <input type="hidden" name="peticion" value="empleado"/>
  
 <div class="w3-row w3-section">
   <div class="w3-col" style="width:50px"></div>

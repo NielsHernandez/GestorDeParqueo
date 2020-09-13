@@ -34,6 +34,7 @@ if(temp!=null)
             }
 %>
 <form class="w3-container w3-card-4" action="controlador" method="GET">
+     <input type="hidden" name="peticion" value="registro"/>
     <br/>
 <img src="img/parqueo.jpg" class="w3-round-xxlarge" style="width:100%">
   <h2 class="w3-text-blue">Vehiculo validado</h2>
