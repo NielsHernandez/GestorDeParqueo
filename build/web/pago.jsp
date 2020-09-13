@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <title>Registrar Nivel</title>
+    <title>Generar Pagos</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -57,21 +57,29 @@
                     <div class="w3-row w3-section">
                         <div class="w3-col" style="width:50px"></div>
                         <div class="w3-rest">
-                            <input class="w3-input w3-border" name="nomina" type="text" placeholder="no nomina:">
+                            <input class="w3-input w3-border" name="nomina_pago" type="text" placeholder="no nomina:">
                         </div>
                     </div>
 
                     <div class="w3-row w3-section">
                         <div class="w3-col" style="width:50px"></div>
                         <div class="w3-rest">
-                            <input class="w3-input w3-border" name="empleado" type="text" placeholder="id empleado a pagar:">
+                            <input class="w3-input w3-border" name="empleado_pago" type="text" placeholder="id empleado a pagar:">
                         </div>
                     </div>
 
                     <div class="w3-row w3-section">
                         <div class="w3-col" style="width:50px"></div>
                         <div class="w3-rest">
-                            <input class="w3-input w3-border" name="total" type="text" placeholder="total a pagar:">
+                            <input class="w3-input w3-border" name="total_pago" type="text" placeholder="total a pagar:">
+                        </div>
+                    </div>
+                    
+                    <div class="w3-row w3-section">
+                    <label class="w3-text-gray"><b>Fecha de pago: </b></label>
+                        <div class="w3-col" style="width:50px"></div>
+                        <div class="w3-rest">
+                            <input class="w3-input w3-border" name="fecha_pago" type="date"  data-date-format="YYYY MM DD" placeholder="Fecha">
                         </div>
                     </div>
 

@@ -61,6 +61,7 @@ public class controlador extends HttpServlet {
             out.println("<body>");
             try {
                 peticion = request.getParameter("peticion").toString();
+                //out.print(peticion);
                 Conexion con = new Conexion();
 
                 switch (peticion) {
@@ -97,6 +98,38 @@ public class controlador extends HttpServlet {
                         String salario = request.getParameter("salario").toString();
                         con.agregar("INSERT INTO empleado (Id_empleado, Nombre, Apellido, Puesto, Jefe, Salario) VALUES ('"+id_empleado+"', '"+nombre+"', '"+apellido+"', '"+puesto+"', '"+jefe+"', '"+salario+"');");
                         out.println("<h2>Insertado registro en la tabla empleado");
+                        
+                        break;
+                        
+                    case "registro":
+                        
+                        String placa_registro = request.getParameter("placa_registro").toString();
+                       
+                        String nivel_registro = request.getParameter("nivel_registro").toString();
+                       
+                        String no_parqueo = request.getParameter("no_parqueo").toString();
+                        String fecha_registro = request.getParameter("fecha_registro").toString();
+                        String hora_entrada = request.getParameter("hora_entrada").toString();
+                        String estado = request.getParameter("estado").toString();
+                        out.print(placa_registro);
+                        try{
+                        con.agregar("INSERT INTO registro (No_registro, No_placa, Id_nivel, No_parqueo, Fecha, HoraEntrada, HoraSalida, Horas, Estado, Costo) "
+                                + "VALUES (NULL, '"+placa_registro+"', '"+nivel_registro+"', '"+no_parqueo+"', '"+fecha_registro+"', '"+hora_entrada+"', NULL, NULL, '"+estado+"', NULL);");
+                        }catch(Exception e)
+                        {
+                            out.print(e.getMessage().toString());
+                        }
+                        out.println("<h2>Insertado registro de entrada...");
+                     
+                        break;
+                    case "pago":
+                        String nomina_pago = request.getParameter("nomina_pago").toString();
+                        String empleado_pago = request.getParameter("empleado_pago").toString();
+                        String total_pago = request.getParameter("total_pago").toString();
+                        String fecha_pago = request.getParameter("fecha_pago").toString();
+                        
+                        con.agregar("INSERT INTO pago (No_registro, Id_empleado, Id_nomina, Total, FechaDePago) VALUES (NULL, '"+empleado_pago+"', '"+nomina_pago+"', '"+total_pago+"', '"+fecha_pago+"');");
+                        out.println("<h2>Generando pago para el empleado "+empleado_pago);
                         
                         break;
                 }
