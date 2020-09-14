@@ -132,6 +132,13 @@ public class controlador extends HttpServlet {
                         out.println("<h2>Generando pago para el empleado "+empleado_pago);
                         
                         break;
+                    case "asignar_equipo":
+                         String nivel_asignar = request.getParameter("nivel_asignar").toString();
+                         String empleado_asignar = request.getParameter("empleado_asignar").toString();
+                         String area = request.getParameter("area").toString();
+                        con.agregar("INSERT INTO equipo (No_registro, Id_nivel, Id_empleado, Area) VALUES (NULL, '"+nivel_asignar+"', '"+empleado_asignar+"', '"+area+"');");
+                        out.println("<h2>Asignacion correcta ");
+                        break;
                 }
 
             } catch (Exception e) {

@@ -38,6 +38,14 @@ public class Conexion {
         return miResultSet;
     }
     
+      public ResultSet getTablaData(String tableName) throws SQLException
+    {
+        
+        miResultSet = miStatement.executeQuery("SELECT * FROM "+tableName+"");
+        
+        return miResultSet;
+    }
+    
     public void agregar(String q) throws SQLException
     {
         
