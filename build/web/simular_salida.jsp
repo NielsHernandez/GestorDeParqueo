@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <body>
         <div class="w3-animate-zoom" style="width: 50%;margin: auto;padding-top: 50px;padding-bottom: 50px;">
-            <form class="w3-container w3-card-4" action="registro.jsp">
+            <form class="w3-container w3-card-4" action="registro_salida.jsp">
                 <br/>
                 <img src="img/parqueo.jpg" class="w3-round-xxlarge" style="width:100%">
                 <h2 class="w3-text-blue">Gracias por visitar Torre Parqueo</h2>

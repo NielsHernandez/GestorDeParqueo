@@ -162,6 +162,13 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    </div>\n");
       out.write("                </div>\n");
       out.write("\n");
+      out.write("                <div class=\"w3-third w3-container w3-margin-bottom\">\n");
+      out.write("                    <a href=\"asignar_equipo.jsp\"><img src=\"img/fondo.png\" alt=\"Registrar Nivel\" style=\"width:100%\" class=\"w3-hover-opacity\"></a>\n");
+      out.write("                    <div class=\"w3-container w3-white\">\n");
+      out.write("                        <p><b>Asignar Empleado (nivel)</b></p>\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("            </div>\n");

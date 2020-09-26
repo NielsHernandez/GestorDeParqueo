@@ -38,6 +38,60 @@ public class Conexion {
         return miResultSet;
     }
     
+     public ResultSet getRegistroData(String id) throws SQLException
+    {
+        
+        ResultSet miResultSet1 = miStatement.executeQuery("SELECT * FROM registro WHERE No_placa='"+id+"' AND Estado='Ocupado'");
+        
+        return miResultSet1;
+    }
+     
+      public int getTarifa(String id_nivel) throws SQLException
+    {
+        int tarifa = 0;
+        
+        ResultSet miResultSet1 = miStatement.executeQuery("SELECT * FROM nivel WHERE Id_nivel='"+id_nivel+"'");
+        
+        while (miResultSet1.next()) {
+            
+            tarifa=Integer.parseInt(miResultSet1.getString("Tarifa"));
+        }
+        
+        return tarifa;
+    }
+      
+     
+      public int contarRegistro(String nombreTabla,String campo) throws SQLException
+    {
+        
+        ResultSet miResultSet2 = miStatement.executeQuery("SELECT COUNT("+campo+") AS total FROM "+nombreTabla+";");
+        int contador=0;
+        while (miResultSet2.next()) {
+            
+            contador=Integer.parseInt(miResultSet2.getString("total"));
+        }
+        
+        return contador;
+    }
+      
+         public String sumarRegistro(String campo,String nombreTabla) throws SQLException
+    {
+        
+        ResultSet miResultSet2 = miStatement.executeQuery("SELECT SUM("+campo+") AS total FROM "+nombreTabla+";");
+       String salida="";
+       while(miResultSet2.next())
+       {
+            salida = miResultSet2.getString("total");
+       }
+           // select SUM(Salario) as total from empleado
+            
+        
+        
+        return salida;
+    }
+      
+     
+    
       public ResultSet getTablaData(String tableName) throws SQLException
     {
         

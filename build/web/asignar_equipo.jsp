@@ -93,7 +93,7 @@
                                     ResultSet datosEmpleado = con.getTablaData("empleado");
                                     while (datosEmpleado.next()) {
 
-                                        out.print("<option value=\"" + datosEmpleado.getString("Id_empleado") + "\">" + datosEmpleado.getString("Id_empleado") + " - " + datosEmpleado.getString("Nombre") + "</option>");
+                                        out.print("<option value=\"" + datosEmpleado.getString("Id_empleado") + "\">" + datosEmpleado.getString("Id_empleado") + " - " + datosEmpleado.getString("Nombre") + " - " + datosEmpleado.getString("Puesto") +"</option>");
                                     };
                                 %>
                                 

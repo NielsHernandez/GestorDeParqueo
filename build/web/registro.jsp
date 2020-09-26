@@ -80,7 +80,7 @@
                     </div>
                 
                 
-                        <input type="hidden" name="estado" value="ocupado">
+                        <input type="hidden" name="estado" value="Ocupado">
                 
 
                 <p><button class="w3-btn w3-blue">Ingresar</button></p>

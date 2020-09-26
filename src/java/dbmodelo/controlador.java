@@ -3,7 +3,9 @@ package dbmodelo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.logging.Level;
@@ -121,6 +123,53 @@ public class controlador extends HttpServlet {
                         }
                         out.println("<h2>Insertado registro de entrada...");
                      
+                        break;
+                    case "registro_salida":
+                        
+                        String placa_registro_salida = request.getParameter("placa_registro_salida").toString();
+                        String hora_salida = request.getParameter("hora_salida");
+                        String hora_registro_entrada = request.getParameter("hora_registro_entrada");
+                        String nivel_parqueo_salida = request.getParameter("nivel_parqueo_salida");
+                        
+                       
+                       
+                        //conversion de tiempo que venian como String a objetos date
+                        DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
+                        DateFormat dateFormat1 = new SimpleDateFormat("hh:mm");
+                        // usar la clase Date y dateFormat para lograr el formato de hora minuto y segundo
+                        java.util.Date tiempo_entrada = dateFormat.parse(hora_registro_entrada);
+                        java.util.Date tiempo_salida = dateFormat1.parse(hora_salida);
+                        
+                        Long horas = tiempo_salida.getTime()-tiempo_entrada.getTime();
+                        //obtener la diferencia entre la hora de entrada y salida como minutos
+                        Long horas1 = horas / 1000;
+                        Long minutos = horas1 / 60;
+                        Long hora_pagar = minutos/60;
+                        
+                        //convertir las cadenas string a objetos sql time para actualizar la tabla registro
+                        java.sql.Time time = new java.sql.Time(tiempo_entrada.getTime());
+                        java.sql.Time time1 = new java.sql.Time(tiempo_salida.getTime());
+                        
+                        //variables para operaciones matematicas
+                        
+                        int tarifa_nivel = con.getTarifa(nivel_parqueo_salida);
+                        int total_a_pagar = (int) (hora_pagar*tarifa_nivel);
+                       
+                        out.print("<div style='width:50%;margin:auto;'>");
+                        out.print("<h2>-----------------------------------</h2>");
+                        out.print("<h3> Hora de entrada: "+ time + "</h3>");
+                        out.print("<h3> Hora salida: "+time1 + "</h3>");
+                        out.print("<h3> total minutos: "+ minutos + "</h3>");
+                        out.print("<h3> horas a pagar: "+hora_pagar + "</h3>");
+                        
+                        out.print("<h3> Nivel: "+ nivel_parqueo_salida + "</h3>");
+                        out.print("<h3> Tarifa Del Nivel: "+ tarifa_nivel + "</h3>");
+                        out.print("<h3>Total a Pagar: Q "+ total_a_pagar + "</h3>");
+                        out.print("<h2>-----------------------------------</h2>");
+                        out.print("</div>");
+                        
+                        con.agregar("UPDATE registro SET HoraSalida = '"+time1+"', Horas = '"+hora_pagar+"', Estado = 'Cancelado', Costo = '"+total_a_pagar+"' WHERE No_placa='"+placa_registro_salida+"' AND Estado='Ocupado'");
+                        
                         break;
                     case "pago":
                         String nomina_pago = request.getParameter("nomina_pago").toString();
